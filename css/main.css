@@ -19,21 +19,31 @@ body a:hover {
 }
 
 h1 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 800;
 }
 
-h2,
-h3,
-h4,
-h5 {
-    font-family: "Montserrat", sans-serif;
+h2 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+}
+
+h3 {
+    font-family: "Raleway", sans-serif;
     font-weight: 600;
 }
 
+h4,
+h5,
+span {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+}
+
 p {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: normal;
+    color: #2b2e30;
 }
 
 ul {
@@ -47,22 +57,21 @@ img {
 }
 
 .btn-dark {
-    border: 2px solid #0c0b0b;
-    box-shadow: 0px 4px 3px 0px;
+    border: 2px solid #232b38;
+    border-bottom: 4px solid #151a22;
     transition: all 0.75s ease;
 }
 
 .btn-dark:hover {
-    background-color: #ffc107;
+    background-color: #eebf00;
     color: black;
-    border: 2px solid #ff98008a;
-    box-shadow: 0px 4px 3px 0px;
+    border: 2px solid #cba300;
     transition: all 0.75s ease;
+    border-bottom: 4px solid #cba300;
 }
 
 .btn-warning {
-    border-bottom: 4px solid #ff98008a;
-    box-shadow: 0px 2px 3px 0px;
+    border-bottom: 4px solid #cba300;
     transition: all 0.75s ease;
 }
 
@@ -70,16 +79,12 @@ img {
 /* Start Header*/
 
 .black {
-    background-color: #000000;
+    background-color: #232b38;
 }
 
 .black ul {
     margin: 0;
     padding: 7px;
-}
-
-.header-top {
-    background-image: black;
 }
 
 .social-icons a {
@@ -102,14 +107,6 @@ img {
     color: white;
     padding-right: 15px;
     padding-left: 5px;
-}
-
-#navbarSupportedContent .menu-item:first-child:before {
-    display: none;
-}
-
-#navbarSupportedContent .menu-item::before {
-    content: " // ";
 }
 
 .check {
@@ -138,9 +135,14 @@ img {
     color: #000000;
 }
 
+.connection .fa-phone-alt,
+.hours .fa-clock {
+    font-size: 20px;
+}
+
 .hours ul,
 .connection ul {
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .hours,
@@ -160,16 +162,27 @@ img {
     display: block;
 }
 
+#navbarSupportedContent .menu-item:first-child:before {
+    display: none;
+}
+
+#navbarSupportedContent .menu-item::before {
+    content: " // ";
+    padding: 0px 15px;
+}
+
+.nav-shadow {
+    border-bottom: 3px solid #46454552;
+    box-shadow: 0px 2px 0px 0px #46454552;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
     text-decoration: none;
-    border-bottom: 2px solid #C0C0C0;
-    box-shadow: 0px 5px 5px 0px;
     align-items: center;
     cursor: pointer;
     transition: all 0.75s ease;
-    height: 40px;
     margin-bottom: 0px;
     padding: 0px;
 }
@@ -182,14 +195,14 @@ nav ul li {
 
 nav ul li a {
     color: #000000;
-    padding: 10px 10px;
+    padding: 15px 15px;
+    font-weight: 500;
 }
 
 nav ul li a:hover {
     background-color: #ffc107;
     color: #fff;
     transition: all 0.75s ease;
-    border-radius: 5px;
 }
 
 #navbarSupportedContent {
@@ -213,8 +226,9 @@ nav ul li a:hover {
     padding: 150px 0;
 }
 
-.fruit {
+#fruit {
     padding: 50px 0;
+    margin-left: 50px;
 }
 
 .btn {
@@ -262,7 +276,8 @@ span {
 .slider-item .card {
     padding: 10px;
     overflow: hidden;
-    width: 100% !important;
+    width: 90% !important;
+    margin: 0px 15px;
 }
 
 .slider-item .card-img-top {
@@ -293,21 +308,21 @@ span {
     border: none;
     transition: all 0.5s ease;
     cursor: pointer;
-    background-color: white;
-    color: #ffc107;
+    background-color: #f0eaea;
+    color: #eebf00;
 }
 
 .multiple-items .slick-arrow:hover {
-    background-color: #e6af09;
-    color: white;
+    background-color: #eebf00;
+    color: #f0eaea;
 }
 
 .slick-prev {
-    left: -18px;
+    left: -15px;
 }
 
 .slick-next {
-    right: -18px;
+    right: -1px;
 }
 
 .multiple-items .card-body {
@@ -321,8 +336,8 @@ span {
 .news {
     width: 120px;
     height: 30px;
-    border: 2px solid red;
-    background-color: red;
+    border: 2px solid #fe4545;
+    background-color: #fe4545;
     color: white;
     display: flex;
     align-items: center;
@@ -333,7 +348,7 @@ span {
 }
 
 .top .fa-shopping-cart {
-    background-color: #ffc107;
+    background-color: #eebf00;
     color: white;
     padding: 10px;
 }
@@ -353,11 +368,18 @@ span {
     margin: 50px 0;
 }
 
+#about-img img {
+    margin: 0px auto;
+}
+
+
+/* Start section Our  */
+
 .rhombus {
     width: 50px;
     height: 50px;
     transform: rotate(45deg);
-    border: 2px solid black;
+    border: 2px solid #232b38;
     border-radius: 10px;
     position: absolute;
     top: -25px;
@@ -371,8 +393,8 @@ span {
 }
 
 .yellow .rhombus {
-    border: 2px solid #ffc107;
-    background-color: #ffc107;
+    border: 2px solid #eebf00;
+    background-color: #eebf00;
     color: #fff;
 }
 
@@ -390,12 +412,12 @@ span {
 }
 
 .box .card {
-    border-top: 3px solid black;
+    border-top: 3px solid #232b38;
     margin-top: 40px;
 }
 
 .box .yellow {
-    border-top: 3px solid #ffc107;
+    border-top: 3px solid #eebf00;
 }
 
 
@@ -405,7 +427,7 @@ span {
 /* Start section Big*/
 
 .big .card {
-    background-color: #ffc107;
+    background-color: #eebf00;
     color: white;
 }
 
@@ -440,6 +462,29 @@ span {
 /*End section Big */
 
 
+/*Start section Blog  */
+
+.sub-title {
+    padding: 20px 0px;
+}
+
+.text-blog {
+    background-color: #fff;
+    padding: 15px;
+}
+
+#blog-img .single {
+    padding: 0px 30px;
+}
+
+#blog-img span {
+    padding: 0px 30px;
+}
+
+
+/* End section Blog */
+
+
 /* Start section Subscribe*/
 
 #form {
@@ -461,7 +506,7 @@ span {
 }
 
 .subscribe {
-    background-color: #ffc107;
+    background-color: #eebf00;
 }
 
 
@@ -474,7 +519,7 @@ span {
     width: 35px;
     height: 35px;
     transform: rotate(45deg);
-    border: 2px solid #ffc107;
+    border: 2px solid #eebf00;
     border-radius: 10px;
     margin: 10px;
 }
@@ -529,15 +574,19 @@ iframe {
 }
 
 #follow a:hover {
-    color: #ffc107;
+    color: #eebf00;
 }
 
 #quick-links #menu-main-menu-1 li a:hover {
-    color: #ffc107;
+    color: #eebf00;
+}
+
+.line .btn {
+    box-shadow: 0px 2px 5px 0px;
 }
 
 .line {
-    border-top: 3px solid #ffc107;
+    border-top: 3px solid #eebf00;
     padding-top: 10px;
 }
 
@@ -574,15 +623,20 @@ iframe {
     padding: 0px 10px;
 }
 
+.footernav .line p {
+    color: #fff;
+}
+
 .footer {
     color: #fff;
-    background-color: black;
+    background-color: #232b38;
 }
 
 .footer p {
     text-align: center;
     padding: 10px;
     margin-bottom: 0px;
+    color: #fff;
 }
 
 
@@ -598,16 +652,19 @@ iframe {
     .hello-text {
         padding: 30px;
     }
-    .fruit,
+    #fruit,
     .deals {
         padding: 0px;
+    }
+    #fruit {
+        max-width: 60%;
+        margin: 0 auto;
     }
     #form,
     .title {
         padding: 20px;
     }
-    .big-img2,
-    .big-img1 {
+    .big-img2 {
         position: initial;
     }
     .footer p {
@@ -622,6 +679,7 @@ iframe {
     }
     nav ul li a {
         display: block;
+        padding: 10px;
     }
     ol,
     ul {
@@ -632,6 +690,10 @@ iframe {
     }
     .wand::before {
         display: none;
+    }
+    #navbarSupportedContent .menu-item::before {
+        display: none;
+        padding: 0px 5px;
     }
     .social-icons a {
         padding: 5px 25px 5px 0px;
@@ -663,20 +725,53 @@ iframe {
     .broccoli img {
         margin: 15px auto 0;
     }
-    .big-img2 img,
-    .big-img1 img {
+    .big-img2 img {
         margin: 15px auto;
+    }
+    .big-img1 img {
+        display: none;
+    }
+    #about-img img {
+        margin: 0px auto;
+    }
+    .nav-shadow {
+        border-bottom: 1px solid #100f0f52;
+        border-radius: 0px;
+    }
+    #blog-img .single {
+        padding: 0px 15px;
     }
 }
 
 
 /* для планшетов */
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .navbar-expand-md .navbar-toggler {
         display: none;
     }
     .social-icons span {
         display: none;
+    }
+    #fruit {
+        max-width: 60%;
+        margin-left: 40px;
+    }
+    .nav-shadow {
+        border-bottom: 1px solid #100f0f52;
+        border-radius: 0px;
+    }
+    #about-img img {
+        margin: 0px;
+    }
+    #navbarSupportedContent .menu-item::before {
+        display: none;
+        padding: 0px 5px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1399.98px) {
+    #about-img img {
+        margin: 0px;
     }
 }

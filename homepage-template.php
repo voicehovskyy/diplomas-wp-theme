@@ -1,12 +1,8 @@
 <?php
 /*
 Template Name: Home Page Template
-
-
-
-
+Template Post Type: page
 */
-
 
 ?>
 <?php get_header(); ?>
@@ -14,21 +10,26 @@ Template Name: Home Page Template
 <!-- <main> находится в header.php  -->
         <!-- Start  section Welcome -->
         <section class="welcome">
+        <div class="shadow"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="hello-text">
                             <div class="mt-250"></div>
-                            <h3><img src="<?php echo get_template_directory_uri(); ?>/img/Welcome To FreshMeal.png" alt=""></h3>
-                            <h1>The World Best <marc>Shoping</marc> Website</h1>
-                            <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Excepturi perferendis, magni. Animi eos voluptas perferendis.</p>
-                            <a href="http://wordpress.local/shoping" target="_blank"><button type="button" class="btn btn-warning">Read More</button></a>
-                            <button type="button" class="btn btn-dark">Shop Now</button>
+                            <h3><img src="<?php the_field('shoping-sub-title-img'); ?>" alt=""></h3>
+                            <h1><?php the_field('shoping-title'); ?></h1>
+                            <p><b><?php the_field('shoping-text'); ?></b></p>
+                            <?php if( have_rows('shoping-link') ): ?>
+                                  <?php while( have_rows('shoping-link') ): the_row(); ?>
+                                     <a href="<?php the_sub_field('link-text'); ?>" target="_blank"><button type="button" class="<?php the_sub_field('link-class'); ?>"><?php the_sub_field('link-text'); ?></button></a>
+                                     
+                                 <?php endwhile; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mt-200 hidden-sm hidden-xs"></div>
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/basket.png" class="fruit" alt="img">
+                        <img src="<?php the_field('shoping-img'); ?>" id="fruit" alt="img">
                     </div>
                 </div>
             </div>
@@ -41,8 +42,8 @@ Template Name: Home Page Template
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
-                            <h2>Top Product</h2>
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/hr.png" alt="Top Product" class="center">
+                            <h2><?php the_field('product-title'); ?></h2>
+                            <img src="<?php the_field('product-title-img'); ?>" alt="Top Product" class="center">
                         </div>
                     </div>
                 </div>
@@ -50,108 +51,37 @@ Template Name: Home Page Template
             <div class="container">
                 <div class="row">
                     <div class="multiple-items">
+                    <?php if( have_rows('product-card') ): ?>
+                        <?php while( have_rows('product-card') ): the_row(); ?>
                         <div class="slider-item">
                             <div class="card" style="width: max-content;">
-                                <div class="news">NEWS</div>
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/43-1.png" class="card-img-top" alt="img-slider">
+                                <div class="news"><?php the_sub_field('card-news'); ?></div>
+                                <img src="<?php the_sub_field('card-img'); ?>" class="card-img-top" alt="img-slider">
                                 <div class="card-body">
-                                    <h5 class="card-title">Mushroom Salad</h5>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star dark"></i>
-                                    <p class="card-text">$125</p>
-                                    <button type="button" class="btn btn-outline-warning"><i class="fas fa-shopping-cart"></i><span>Add to Card</span></button>
+
+                                    <h5 class="card-title"><?php the_sub_field('card-name'); ?></h5>
+                                   <?php $stars = get_sub_field('card-stars'); ?>
+                                    <i class="fas fa-star <?php echo ($stars >= 1) ?  'yellow' :  'dark' ; ?>"></i>
+                                    <i class="fas fa-star <?php echo ($stars >= 2) ?  'yellow' :  'dark' ; ?>"></i>
+                                    <i class="fas fa-star <?php echo ($stars >= 3) ?  'yellow' :  'dark' ; ?>"></i>
+                                    <i class="fas fa-star <?php echo ($stars >= 4) ?  'yellow' :  'dark' ; ?>"></i>
+                                    <i class="fas fa-star <?php echo ($stars >= 5) ?  'yellow' :  'dark' ; ?>"></i>
+
+                                    <p class="card-text"><?php the_sub_field('card-price'); ?></p>
+                                    <a href="<?php the_sub_field('card-link'); ?>" target="_blank"><button type="button" class="btn btn-outline-warning"><i class="fas fa-shopping-cart"></i><span><?php the_sub_field('card-link-text'); ?></span></button></a>
                                 </div>
                             </div>
                         </div>
-                         <div class="slider-item">
-                            <div class="card" style="width: max-content;">
-                                <div class="news">NEWS</div>
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/meat2.png" class="card-img-top" alt="img-slider">
-                                <div class="card-body">
-                                    <h5 class="card-title">Chiken Biryani</h5>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star dark"></i>
-                                    <p class="card-text">$175</p>
-                                    <button type="button" class="btn btn-outline-warning"><i class="fas fa-shopping-cart"></i><span>Add to Card</span></button>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="slider-item">
-                            <div class="card" style="width:max-content;">
-                                <div class="news">NEWS</div>
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/43-3.png" class="card-img-top" alt="img-slider">
-                                <div class="card-body">
-                                    <h5 class="card-title">Beaf Bun Burger</h5>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star dark"></i>
-                                    <i class="fas fa-star dark"></i>
-                                    <p class="card-text">$155</p>
-                                    <button type="button" class="btn btn-outline-warning"><i class="fas fa-shopping-cart"></i><span>Add to Card</span></button>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="slider-item">
-                            <div class="card" style="width: max-content;">
-                                <div class="news">NEWS</div>
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/chiken.png" class="card-img-top" alt="img-slider">
-                                <div class="card-body">
-                                    <h5 class="card-title">Chiken Biryani</h5>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star dark"></i>
-                                    <p class="card-text">$175</p>
-                                    <button type="button" class="btn btn-outline-warning"><i class="fas fa-shopping-cart"></i><span>Add to Card</span></button>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="slider-item">
-                            <div class="card" style="width: max-content;">
-                                <div class="news">NEWS</div>
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/soup.png" class="card-img-top" alt="img-slider">
-                                <div class="card-body">
-                                    <h5 class="card-title">Mushroom Salad</h5>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star dark"></i>
-                                    <p class="card-text">$125</p>
-                                    <button type="button" class="btn btn-outline-warning"><i class="fas fa-shopping-cart"></i><span>Add to Card</span></button>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="slider-item">
-                            <div class="card" style="width: max-content;">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/meat.png" class="card-img-top" alt="img-slider">
-                                <div class="card-body">
-                                    <h5 class="card-title">Beaf Bun Burger</h5>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star yellow"></i>
-                                    <i class="fas fa-star dark"></i>
-                                    <p class="card-text">$155</p>
-                                    <button type="button" class="btn btn-outline-warning"><i class="fas fa-shopping-cart"></i><span>Add to Card</span></button>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+          
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="col-md-12 text-center">
                     <div class="space-50"></div>
-                    <a href="http://wordpress.local/product" target="_blank"><button type="button" class="btn btn-dark my-4">View More</button></a>
+                    <a href="<?php the_field('product-link'); ?>"  target="_blank"><button type="button" class="btn btn-dark my-4"><?php the_field('product-link-text'); ?></button></a>
                 </div>
             </div>
         </section>
@@ -162,22 +92,22 @@ Template Name: Home Page Template
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
-                            <h2>About Fresh Meal</h2>
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/hr.png" alt="About Fresh Meal<" class="center">
+                            <h2><?php the_field('about-title'); ?></h2>
+                            <img src="<?php the_field('about-title-img'); ?>" alt="About Fresh Meal" class="center">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/3.png" alt="">
+                    <div class="col-md-6" id="about-img">
+                        <img src="<?php the_field('about-img'); ?>" alt="">
                     </div>
                     <div class="col-md-6">
-                        <h3>Freshmeal is a long established fact that a reader <br>will be distracted.</h3>
-                        <p>Contrary to popular betief. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias molestias labore blanditiis magnam repellendus placeat corrupti commodi quia consequatur nesciunt ipsa impedit dolorum.</p>
-                        <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Excepturi perferendis, magni.</p>
-                        <a href="http://wordpress.local/about" target="_blank"><button type="button" class="btn btn-dark my-4">Read More</button></a>
+                        <h3><?php the_field('about-sub-title'); ?></h3>
+                        <?php the_field('about-text1'); ?>
+                        <?php the_field('about-text2'); ?>
+                        <a href="<?php the_field('about-link'); ?>" target="_blank"><button type="button" class="btn btn-dark my-4"><?php the_field('about-link-text'); ?></button></a>
                     </div>
                 </div>
             </div>
@@ -189,8 +119,8 @@ Template Name: Home Page Template
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
-                            <h2>Our Services</h2>
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/hr.png" alt="Our Services" class="center">
+                            <h2><?php the_field('services-title'); ?></h2>
+                            <img src="<?php the_field('services-title-img'); ?>" alt="Our Services" class="center">
                         </div>
                     </div>
                 </div>
@@ -198,98 +128,85 @@ Template Name: Home Page Template
             <div class="container relative">
                 <div class="box">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="rhombus">
-                                    <i class="fas fa-truck"></i>
+                        <?php if( have_rows('services-box') ): ?>
+                            <?php while( have_rows('services-box') ): the_row(); ?>
+                                <div class="col-md-4">
+                                    <div class="<?php the_sub_field('card-color'); ?>">
+                                        <div class="<?php the_sub_field('box-rhomb-color'); ?>">
+                                           <i class="<?php the_sub_field('box-rhomb-img'); ?>"></i>
+                                        </div>                                     
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?php the_sub_field('services-box-title'); ?></h5>
+                                            <?php the_sub_field('services-box-text'); ?>
+                                            <a href="<?php the_sub_field('services-box-link'); ?>" target="_blank"><button type="button" class="<?php the_sub_field('link-color'); ?>"><?php the_sub_field('services-box-link-text'); ?></button></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Free Home Delivery</h5>
-                                    <p class="card-text">Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quibusdam numquam vel.</p>
-                                    <a href="http://wordpress.local/delivery" target="_blank"><button type="button" class="btn btn-dark">Read More</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card yellow">
-                                <div class="rhombus">
-                                    <i class="fas fa-suitcase"></i>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <marc>30 Days Return Services</marc>
-                                    </h5>
-                                    <p class="card-text">Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quibusdam numquam vel.</p>
-                                    <a href="http://wordpress.local/services" target="_blank"><button type="button" class="btn btn-warning">Read More</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="rhombus">
-                                    <i class="fas fa-dollar-sign"></i>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Money Back Guaranted</h5>
-                                    <p class="card-text">Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Ipsam quibusdam numquam vel.</p>
-                                      <a href="http://wordpress.local/money" target="_blank"><button type="button" class="btn btn-dark">Read More</button></a> 
-                                </div>
-                            </div>
-                        </div>
+                           <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End section Our -->
         <!-- Start section Big -->
-        <section class="big">
+        <section class="big" <?php get_background_image() ?>>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
-                            <h2>Big Deals of the Week</h2>
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/hr.png" alt="Big Deals of the Week" class="center">
+                            <h2><?php the_field('big-title'); ?></h2>
+                            <img src="<?php the_field('big-title-img'); ?>" alt="Big Deals of the Week" class="center">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container relative">
                 <div class="big-img1">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/cream.png" alt="img">
+                    <img src="<?php the_field('big-img1'); ?>" alt="img">
                 </div>
-                <div class="row deals">
+                <div class="row deals" id="time-count">
                     <div class="col-md-2"></div>
+                    
+                    <?php if( have_rows('count') ): ?>
+                        <?php while( have_rows('count') ): the_row(); ?>
                     <div class="col-md-2">
                         <div class="card">
-                            <div class="card-body">
-                                <p><b>02</b><br>DAYS</p>
+                            <div class="card-body time-count-days">
+                            <div class="time-count-val"><?php the_sub_field('count-number'); ?></div>
+                            <span class="time-count-text"><?php the_sub_field('count-text'); ?></span>                               
+                            </div>
+                        </div>
+                    </div>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
+                    <!-- <div class="col-md-2">
+                        <div class="card">
+                            <div class="card-body time-count-hours">
+                            <div class="time-count-val">00</div>
+                            <span class="time-count-text">HOURS</span>                               
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="card">
-                            <div class="card-body">
-                                <p><b>24</b><br>HOURS</p>
+                            <div class="card-body time-count-mins">
+                            <div class="time-count-val">00</div>
+                            <span class="time-count-text">MINS</span>                             
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="card">
-                            <div class="card-body">
-                                <p><b>55</b><br>MINS</p>
+                            <div class="card-body time-count-secs">
+                            <div class="time-count-val">00</div>
+                            <span class="time-count-text">SECS</span>                            
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <div class="card-body">
-                                <p><b>58</b><br>SECS</p>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="big-img2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/berry1.png" alt="img">
+                    <img src="<?php the_field('big-img2'); ?>" alt="img">
                 </div>
             </div>
         </section>
@@ -300,29 +217,45 @@ Template Name: Home Page Template
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
-                            <h2>Lastest News from Blog</h2>
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/hr.png" alt="Lastest News from Blog" class="center">
+                            <h2><?php the_field('blog-title'); ?></h2>
+                            <img src="<?php the_field('blog-title-img'); ?>" alt="Lastest News from Blog" class="center">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/clock.png" alt="">
+                <div class="row" id="blog-img">
+                    <?php if( have_rows('blog-box') ): ?>
+                        <?php while( have_rows('blog-box') ): the_row(); ?>
+
+                            <div class="col-md-6 single">
+                                <img src="<?php the_sub_field('blog-img'); ?>" alt="clock">
+                            <div class="text-blog">
+                                <div class="sub-title">
+                                    <span><?php the_sub_field('blog-date'); ?></span><span><?php the_sub_field('blog-post'); ?></span><span><?php the_sub_field('blog-comments'); ?></span>
+                                </div>
+                                <h3><?php the_sub_field('blog-sub-title'); ?></h3>
+                                <?php the_sub_field('blog-text'); ?>
+                                </div>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>   
+                    <!-- <div class="col-md-6 single">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/chocolate-moose1.png" alt="moose1">
+                        <div class="text-blog">
+                        <div class="sub-title">
+                        <span>March 13.2021&nbsp;&nbsp;&nbsp;</span> 
+                        <span>Posted by <b>Fresh Meal</b> 12 Comments</span>
+                        </div>
                         <h2>Lorem ipsum dolor sit amet consectetur</h2>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur non quo deleniti totam maxime ipsam corrupti architecto quaerat, voluptas, quos temporibus quidem dolore blanditiis velit hic! Perspiciatis molestias exercitationem, quisquam.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/chocolate-moose1.png" alt="">
-                        <h2>Lorem ipsum dolor sit amet consectetur</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur non quo deleniti totam maxime ipsam corrupti architecto quaerat, voluptas, quos temporibus quidem dolore blanditiis velit hic! Perspiciatis molestias exercitationem, quisquam.</p>
-                    </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-12 text-center">
                 <div class="space-50"></div>
-                <a class="btn btn-dark" href="<?php echo site_url('/blog'); ?>" role="button">View All</a>
+                <a class="btn btn-dark" href="<?php the_field('blog-link'); ?>" role="button">View All</a>
             </div>
         </section>
         <!-- End section Blog -->
@@ -332,16 +265,18 @@ Template Name: Home Page Template
                 <div class="row">
                     <div class="col-md-5">
                         <div class="broccoli">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/broccoli1.png" alt="img">
+                            <img src="<?php the_field('имя_поля'); ?>" alt="img">
                         </div>
                     </div>
                     <div class="col-md-7" id="form">
-                        <h4>Subscribe to your newsletter</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Doloribus rerum, atque modi explicabo doloremque cupiditate.</p>                      
+                        <h4><?php the_field('имя_поля'); ?></h4>
+                        <p><?php the_field('имя_поля'); ?></p>                      
                         <div class="input-group mb-3">
                         <?php echo do_shortcode('[contact-form-7 id="447" title="Contact"]'); ?>          
                         </div> 
                     </div>
+                </div>
+            </div>    
         </section>
         <!-- End section Subscribe -->
         <!-- Start section Map -->

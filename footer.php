@@ -3,19 +3,19 @@
 <!-- Start Footer Section -->
 <footer>
     <!-- Start section Footer Nav -->
-    <section class="footernav">
+    <section class="footernav" <?php get_background_image() ?>>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-3">
-                    <h3>About US</h3>
+                    <h3><?php the_field('footer-about-title', 'option'); ?></h3>
                     <div class="line">
-                        <p>It was popularised in 1960 with the relese of Latest shoots contaning</p>
-                        <p>Lorem, ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                        <a href="http://wordpress.local/about" target="_blank"><button type="button" class="btn btn-dark">Read More</button></a>
+                            <?php the_field('footer-about-text1', 'option'); ?>
+                        <?php the_field('footer-about-text2', 'option'); ?>
+                        <a href="<?php the_field('footer-about-link', 'option'); ?>" target="_blank"><button type="button" class="btn btn-dark">Read More</button></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <h3>Quick Links</h3>
+                    <h3><?php the_field('footer-navbar-title', 'option'); ?></h3>
                     <div class="line" id="quick-links">
                         <?php
                         wp_nav_menu([
@@ -29,48 +29,27 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <h3>Follow US</h3>
+                    <h3><?php the_field('follow-title', 'option'); ?></h3>
                     <div class="line" id="follow">
-                        <a href="https://www.facebook.com/profile.php?id=100024404018785"><i class="fab fa-facebook-f"></i>Facebook</a>
-                        <a href="https://twitter.com/home?lang=ru"><i class="fab fa-twitter"></i>Twitter</a>
-                        <a href="https://ru.wikipedia.org/wiki/Google"><i class="fab fa-google-plus-g"></i>Google</a>
-                        <a href="https://www.instagram.com/voitsekhovskayamarina/?hl=ru"><i class="fab fa-instagram"></i>Instagram</a>
+                        <a href="<?php the_field('follow-facebook', 'option'); ?>"><i class="fab fa-facebook-f"></i>Facebook</a>
+                        <a href="<?php the_field('follow-twitter', 'option'); ?>"><i class="fab fa-twitter"></i>Twitter</a>
+                        <a href="<?php the_field('follow-google', 'option'); ?>"><i class="fab fa-google-plus-g"></i>Google</a>
+                        <a href="<?php the_field('follow-instagram', 'option'); ?>"><i class="fab fa-instagram"></i>Instagram</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <h3>Instagram</h3>
+                    <h3><?php the_field('instagram-title', 'option'); ?></h3>
                     <div class="line">
                         <div class="row row-flex  insta-images">
-                            <div class="col-4">
-                                <div class="card">
-                                <a href="http://wordpress.local/gallery" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/photo2.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                <a href="http://wordpress.local/gallery" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/soup1.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                <a href="http://wordpress.local/gallery" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/photo.4.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                <a href="http://wordpress.local/gallery" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/photo6.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                <a href="http://wordpress.local/gallery" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/photo7.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                <a href="http://wordpress.local/gallery" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/img/photo.3.png" alt=""></a>
-                                </div>
-                            </div>
+                            <?php if( have_rows('instagram-img', 'option') ): ?>
+                                <?php while( have_rows('instagram-img', 'option') ): the_row(); ?>
+                                    <div class="col-4">
+                                        <div class="card">                
+                                        <a href="<?php the_sub_field('link-img', 'option'); ?>" target="_blank"><img src="<?php the_sub_field('img', 'option'); ?>" alt=""></a>       
+                                         </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?> 
                         </div>
                     </div>
                 </div>
@@ -81,18 +60,11 @@
     <!-- Start section Footer -->
     <section class="footer">
         <div class="container">
-            <p>Copyright © 2021 All rights reserved by <marc>FreshMeal</marc> Designed by <marc>ThemeDesk</marc>
-            </p>
+        <?php the_field('copyright', 'option'); ?>
         </div>
     </section>
     <!-- End section Footer  -->
-
-
-
 </footer>
-
-
-
 <!-- End Footer Section -->
 <?php wp_footer(); ?>
 

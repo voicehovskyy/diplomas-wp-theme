@@ -12,10 +12,6 @@
 
 <body <?php body_class(); ?>>
 
-
-
-
-
     <!-- Start Header -->
     <header>
         <div class="black">
@@ -34,7 +30,7 @@
                         <ul class="social-icons check">
                             <li><a href="<?php echo wp_login_url(); ?>"><i class="fas fa-user"></i><span> Log in </span></a></li>
                             <li class="wand"><a href="<?php echo wp_registration_url(); ?>"><i class="fas fa-edit"></i><span> Register Now </span></a></li>
-                            <li class="wand"><a href="#"><i class="fas fa-shopping-cart"></i><span> items </span></a></li>
+                            <li class="wand"><a href="#"><i class="fas fa-shopping-cart"></i><span>0 items - ($0.00)</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -67,7 +63,9 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+    </header>
+    <div class="">
+        <div class="container nav-shadow">
             <nav class="navbar-expand-md navbar-expand-lg navbar-light ">
                 <button class="navbar-toggler mx-auto d-block  d-md-none d-lg-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -84,8 +82,9 @@
                 ?>
             </nav>
         </div>
-    </header>
+    </div>
     <!-- End Header -->
+
 
     <!-- Start main -->
     <main>
