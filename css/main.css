@@ -171,10 +171,6 @@ img {
     padding: 0px 15px;
 }
 
-.nav-shadow {
-    border-bottom: 3px solid #46454552;
-    box-shadow: 0px 2px 0px 0px #46454552;
-}
 
 nav ul {
     display: flex;
@@ -214,7 +210,19 @@ nav ul li a:hover {
 
 
 /* Start  section Welcome */
-
+.nav-shadow {
+    overflow: hidden;
+    height: 10px;
+}
+.nav-shadow:after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 30px;
+	margin: -30px auto 0;
+  border-radius: 120px / 10px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,.8);
+}
 .welcome {
     width: 100%;
     background-image: url(../img/background.png);
@@ -363,13 +371,12 @@ span {
 
 /*Start section About*/
 
-.about .btn,
-.blog .btn {
+.about .btn {
     margin: 50px 0;
 }
 
 #about-img img {
-    margin: 0px auto;
+    padding: 0px 10px 50px 130px;
 }
 
 
@@ -474,7 +481,7 @@ span {
 }
 
 #blog-img .single {
-    padding: 0px 30px;
+    padding: 0px 30px 50px 30px;
 }
 
 #blog-img span {
@@ -539,6 +546,17 @@ span {
 
 iframe {
     max-width: 100%
+}
+
+.acf-map {
+    height: 400px;
+    width: 100%;
+    border: #ccc solid 1px;
+    margin: 10px 0;
+}
+
+.acf-map img {
+    max-width: inherit !important;
 }
 
 
@@ -649,6 +667,9 @@ iframe {
     .multiple-items .card-body {
         padding: 10px;
     }
+    img {
+        height: auto;
+    }
     .hello-text {
         padding: 30px;
     }
@@ -696,14 +717,22 @@ iframe {
         padding: 0px 5px;
     }
     .social-icons a {
-        padding: 5px 25px 5px 0px;
+        padding: 5px 20px 5px 0px;
     }
     .social-icons span {
         display: none;
     }
+	.fa-search {
+		 display: none;
+	}
     .hours,
     .connection {
-        justify-content: center;
+         display: none;
+    }
+	.map .hours,
+    .map .connection {
+         display: inline;
+		padding: 0px;
     }
     iframe {
         max-width: 100%;
@@ -733,6 +762,7 @@ iframe {
     }
     #about-img img {
         margin: 0px auto;
+        padding: 0px 70px;
     }
     .nav-shadow {
         border-bottom: 1px solid #100f0f52;
@@ -741,8 +771,24 @@ iframe {
     #blog-img .single {
         padding: 0px 15px;
     }
+	.about .btn,
+	.line .btn {
+		margin-left: 100px;	
+	}
+	#wpcf7-f447-o1 .wpcf7-submit {
+        margin: 20px 90px;
+    }
+	#blog-img span {
+        padding: 0px;
+    }
+	.mb-3 {
+        margin-bottom: 0px;
+	}
+	#contact .connection {
+    display: flex;
+    justify-content: flex-start;
+    }
 }
-
 
 /* для планшетов */
 

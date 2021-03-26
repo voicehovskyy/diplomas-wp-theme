@@ -19,11 +19,11 @@
                 <div class="row">
                     <div class="col-6">
                         <ul class="social-icons icons">
-                            <li class="facebook"><a href="https://www.facebook.com/profile.php?id=100024404018785" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="twitter"><a href="https://twitter.com/home?lang=ru" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                            <li class="google-plus"><a href="https://ru.wikipedia.org/wiki/Google%2B" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                            <li class="instagram"><a href="https://www.instagram.com/voitsekhovskayamarina/?hl=ru" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                            <li class="searsh"><a href="https://www.google.com/search?q=google-plus&oq=google-plus&aqs=chrome..69i57j0i30l9.2739j0j7&sourceid=chrome&ie=UTF-8" target="_blank"><i class="fas fa-search"></i></a></li>
+                            <li class="facebook"><a href="<?php the_field('header-facebook', 'option'); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="twitter"><a href="<?php the_field('header-twitter', 'option'); ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li class="google-plus"><a href="<?php the_field('header-google', 'option'); ?>" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
+                            <li class="instagram"><a href="<?php the_field('header-instagram', 'option'); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li class="searsh"><a href="<?php the_field('header-search', 'option'); ?>" target="_blank"><i class="fas fa-search"></i></a></li>
                         </ul>
                     </div>
                     <div class="col-6">
@@ -42,8 +42,8 @@
                     <div class="connection">
                         <i class="fas fa-phone-alt"></i>
                         <ul>
-                            <li><a href="tel:+380686073687"><b>Call US: +38(068)6073687</b></a></li>
-                            <li><a href="mailto:voicehovskyy@gmail.com">E-mail: voicehovskyy@gmail.com</a></li>
+                            <li><a href="tel:<?php the_field('header-call', 'option'); ?>"><b>Call US: <?php the_field('header-call', 'option'); ?></b></a></li>
+                            <li><a href="mailto:<?php the_field('header-email', 'option'); ?>">E-mail: <?php the_field('header-email', 'option'); ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <i class="far fa-clock"></i>
                         <ul>
                             <li><b>Working Hours:</b></li>
-                            <li>Mon-Sat(8:00am-12:00am)</li>
+                            <li><?php the_field('header-working', 'option'); ?></li>
                         </ul>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
         </div>
     </header>
     <div class="">
-        <div class="container nav-shadow">
+        <div class="container">
             <nav class="navbar-expand-md navbar-expand-lg navbar-light ">
                 <button class="navbar-toggler mx-auto d-block  d-md-none d-lg-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

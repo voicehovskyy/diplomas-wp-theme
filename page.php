@@ -9,9 +9,11 @@
                 <div class="post">
                 <div class="py-5">
                     <h2 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h2>
+                    
                 </div>
                     <div class="entrytext">
                         <?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
+                      
                     </div>
                 </div>
         <?php endwhile;
